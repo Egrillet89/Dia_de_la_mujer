@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para ti</title>
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* Reset para asegurar que el fondo ocupe todo */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #fdf8f9 !important; /* Rosa muy pálido */
+            background-color: #fdf8f9 !important;
+        }
+
+        /* Capa de seguridad para el fondo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fdf8f9;
+            z-index: -1;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,10 +35,17 @@
             font-family: 'Montserrat', sans-serif;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Cambiado para permitir scroll si el texto es largo */
-            color: #4a4a4a;
+            align-items: flex-start;
+            color: #4a4a4a !important; /* Forzamos color oscuro de letra */
             overflow-x: hidden;
-            background-attachment: fixed;
+        }
+
+        /* Si el móvil intenta forzar modo oscuro, intentamos neutralizarlo */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #fdf8f9 !important;
+                color: #4a4a4a !important;
+            }
         }
 
         .container {
@@ -32,42 +53,32 @@
             max-width: 400px;
             padding: 40px 20px;
             text-align: center;
-            min-height: 100vh; /* Asegura que el contenido estire el fondo */
+            min-height: 100vh;
         }
 
-        /* Título unificado */
         .title-container {
             margin-top: 20px;
             opacity: 0;
             transform: translateX(-30px);
             animation: fadeInRight 1.5s forwards ease-out;
             font-family: 'Dancing Script', cursive;
-            color: #333;
+            color: #333 !important;
             line-height: 1.1;
         }
 
-        .title-top {
-            font-size: 2.8rem;
-            display: block;
-        }
-
-        .title-main {
-            font-size: 4.5rem;
-            display: block;
-        }
+        .title-top { font-size: 2.8rem; display: block; }
+        .title-main { font-size: 4.5rem; display: block; }
 
         .subtitle { 
             font-size: 1rem; 
             letter-spacing: 3px; 
             margin: 15px 0 30px; 
-            color: #a0a0a0; 
-            font-weight: 400;
+            color: #a0a0a0 !important; 
             text-transform: uppercase;
             opacity: 0;
             animation: fadeInRight 1.5s forwards ease-out 0.4s;
         }
         
-        /* Contenedor Silueta */
         .silhouette-image-container {
             width: 100%;
             max-width: 250px;
@@ -84,20 +95,21 @@
         }
         
         .text-content { 
-            font-size: 1.3rem; /* Ajustado ligeramente para móvil */
+            font-size: 1.3rem;
             line-height: 1.6; 
             margin-bottom: 20px; 
             font-weight: 300;
             opacity: 0;
             animation: fadeIn 2s forwards 1.2s;
+            color: #4a4a4a !important;
         }
 
         .quote { 
             font-style: italic; 
-            color: #d18a99; 
+            color: #d18a99 !important; 
             margin: 25px 0; 
             font-weight: 500; 
-            font-size: 1.8rem; /* Ajustado para móvil */
+            font-size: 1.8rem;
             opacity: 0;
             animation: fadeIn 2s forwards 1.6s;
         }
@@ -105,27 +117,19 @@
         .btn {
             display: inline-block;
             padding: 14px 45px;
-            background-color: #d18a99;
-            color: white;
+            background-color: #d18a99 !important;
+            color: white !important;
             text-decoration: none;
             border-radius: 30px;
             margin-top: 15px;
-            margin-bottom: 40px; /* Espacio extra al final */
+            margin-bottom: 40px;
             opacity: 0;
             animation: fadeIn 2s forwards 2s;
             box-shadow: 0 4px 15px rgba(209, 138, 153, 0.2);
-            transition: transform 0.3s ease;
         }
 
-        .btn:active { transform: scale(0.95); }
-
-        @keyframes fadeInRight {
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
+        @keyframes fadeInRight { to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeIn { to { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -134,24 +138,14 @@
             <span class="title-top">El 8 de</span>
             <span class="title-main">Marzo...</span>
         </div>
-        
         <p class="subtitle">Es Memoria y Gratitud</p>
-        
         <div class="silhouette-image-container">
             <img src="silueta.png" alt="Silueta" class="silhouette-image">
         </div>
-
-        <div class="text-content">
-            Es el eco suave de mujeres valientes que abrieron caminos, para que hoy puedas elegir el tuyo.
-        </div>
-        <div class="text-content">
-            Siento orgullo de caminar a tu lado, de tu fuerza serena y de esa luz que transforma todo cuanto toca.
-        </div>
-
+        <div class="text-content">Es el eco suave de mujeres valientes que abrieron caminos, para que hoy puedas elegir el tuyo.</div>
+        <div class="text-content">Siento orgullo de caminar a tu lado, de tu fuerza serena y de esa luz que transforma todo cuanto toca.</div>
         <p class="quote">"No se nace mujer, se llega a serlo"</p>
-        
         <div class="text-content">Y tú lo eres de la forma más hermosa.</div>
-
         <a href="fotos.html" class="btn">VER DETALLE ❤️</a>
     </div>
 </body>
