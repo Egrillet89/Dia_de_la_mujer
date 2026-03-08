@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #fdf8f9;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Título unificado en cursiva con animación de izquierda a derecha */
+        .title-container {
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInRight 1.5s forwards ease-out;
+            font-family: 'Dancing Script', cursive;
+            color: #333;
+            line-height: 1.1;
+        }
+
+        .title-top {
+            font-size: 2.8rem;
+            display: block;
+        }
+
+        .title-main {
+            font-size: 4.5rem;
+            display: block;
+        }
+
+        .subtitle { 
+            font-size: 1rem; 
+            letter-spacing: 3px; 
+            margin: 15px 0 30px; 
+            color: #a0a0a0; 
+            font-weight: 400;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInRight 1.5s forwards ease-out 0.4s;
+        }
+        
+        /* --- NUEVO CONTENEDOR PARA LA IMAGEN DE LA SILUETA --- */
+        .silhouette-image-container {
+            width: 100%;
+            max-width: 250px; /* Ajusta el tamaño máximo de la imagen */
+            margin: 20px auto; /* Centra la imagen y da espacio */
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInRight 1.5s forwards ease-out 0.8s; /* Misma animación que el SVG original */
+        }
+
+        .silhouette-image {
+            width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+            height: auto; /* Mantiene la proporción */
+            display: block;
+        }
+        /* -------------------------------------------------- */
+        
+        .text-content { 
+            font-size: 1.6rem; 
+            line-height: 1.7; 
+            margin-bottom: 20px; 
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1.2s;
+        }
+
+        .quote { 
+            font-style: italic; 
+            color: #d18a99; 
+            margin: 25px 0; 
+            font-weight: 500; 
+            font-size: 2.2rem;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1.6s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 45px;
+            background-color: #d18a99;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 15px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+            box-shadow: 0 4px 15px rgba(209, 138, 153, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:active { transform: scale(0.95); }
+
+        @keyframes fadeInRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <span class="title-top">El 8 de</span>
+            <span class="title-main">Marzo...</span>
+        </div>
+        
+        <p class="subtitle">Es Memoria y Gratitud</p>
+        
+        <div class="silhouette-image-container">
+            <img src="silueta.png" alt="Silueta de mujer oliendo una flor" class="silhouette-image">
+        </div>
+        <div class="text-content">
+            Es el eco suave de mujeres valientes que abrieron caminos, para que hoy puedas elegir el tuyo.
+        </div>
+        <div class="text-content">
+            Siento orgullo de caminar a tu lado, de tu fuerza serena y de esa luz que transforma todo cuanto toca.
+        </div>
+
+        <p class="quote">"No se nace mujer, se llega a serlo"</p>
+        
+        <div class="text-content">Y tú lo eres de la forma más hermosa.</div>
+
+        <a href="fotos.html" class="btn">VER DETALLE ❤️</a>
+    </div>
+</body>
+</html>

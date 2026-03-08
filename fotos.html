@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Ciela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            height: 100vh;
+            width: 100vw;
+            /* FOTO DE FONDO (La 4ta foto) */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('fondo.png');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Flecha para ir hacia atrás */
+        .back-arrow {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            z-index: 100;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        .header h2 { font-size: 1.4rem; letter-spacing: 4px; font-weight: 600; text-transform: uppercase; }
+        .mujer { 
+            font-family: 'Dancing Script', cursive; 
+            font-size: 4.5rem; 
+            display: block; 
+            margin: -5px 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        .header p { font-size: 1.1rem; font-weight: 300; line-height: 1.4; }
+        .ciela { font-family: 'Dancing Script', cursive; font-size: 2rem; margin-top: 15px; }
+
+        /* Contenedor Polaroids */
+        .polaroid-stack {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+        .polaroid {
+            background: white;
+            padding: 10px 10px 35px 10px;
+            position: absolute;
+            width: 160px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+        .polaroid img { width: 100%; height: 160px; object-fit: cover; }
+        
+        /* Posiciones exactas como en la referencia */
+        .p1 { transform: rotate(-10deg); left: 10%; top: 10%; z-index: 1; }
+        .p2 { transform: rotate(10deg); right: 10%; top: 15%; z-index: 2; }
+        .p3 { transform: rotate(0deg); left: 50%; transform: translateX(-50%); bottom: 10%; z-index: 3; }
+
+        .heart-icon { color: #ff3e3e; font-size: 1.5rem; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-arrow">←</a>
+
+    <div class="header">
+        <h2>Feliz día de la</h2>
+        <span class="mujer">Mujer</span>
+        <p>para aquella que me inspira y me enorgullece</p>
+        <div class="ciela">Te quiero mi ciela</div>
+        <div class="heart-icon">❤️</div>
+    </div>
+
+    <div class="polaroid-stack">
+        <div class="polaroid p1"><img src="foto1.png"></div>
+        <div class="polaroid p2"><img src="foto2.png"></div>
+        <div class="polaroid p3"><img src="foto3.png"></div>
+    </div>
+
+</body>
+</html>
